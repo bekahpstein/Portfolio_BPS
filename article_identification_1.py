@@ -139,16 +139,6 @@ while L < len(companies):
 common_company_names = common_company_names.dropna()
 print("end:", datetime.now())
 
-# nltk
-
-# NN: noun, common, singular or mass
-# NNP: noun, proper, singular
-# NNPS: noun, proper, plural
-# NNS: noun, common, plural
-
-
-# strip all spaces off both sides of company names after simplifying them
-# companies['Strip 1'] = companies['Strip 1'].str.strip()
 
 
 # Want to incorporate brands
@@ -343,7 +333,6 @@ for x, row in brands_sim.iterrows():
 # replace p l c  and public joint stock with ''
 brands_sim['Strip 13'] = brands_sim['Strip 13'].str.replace("p l c", '').replace("public joint stock", '')
 
-# ToDo: fix common_company_names3 - should be empty so filter on brands not working
 
 # take off extra spaces (add back later to have consistency and able to search for words, and not get parts of words)
 brands_sim['Strip 13'] = brands_sim['Strip 13'].str.strip()
@@ -403,19 +392,6 @@ del merge_companies_simp['"The"_Check3']
 del merge_companies_simp['"The"_Check_rem3']
 del merge_companies_simp['no punctuation3']
 
-
-# ToDo: why is united not on the list of public companies from Ari?
-
-# SOLUTION: add list of common companies to list manually to affiliates file
-# added uber, amazon, mcdonald, disney, shell, peloton, coke manually to
-# changed "facebook INC" to META in multinational_affiliates, added META, Instagram, Whatsapp, facebook
-# added most car brands
-
-# publicly traded company - frontier (parent Indigo Partners) - labeled
-# neuralink (publicly reported and can trade tokenized shares or tokenized stocks) - labeled
-
-# bitcoin has a bunch of companies that deal with it - just label but don't connect to parent company
-# multiple companies with bt in them - labeled them the biggest: BT GROUP PLC
 
 # get rid of duplicates
 # use the drop parameter to avoid the old index being added as a column:

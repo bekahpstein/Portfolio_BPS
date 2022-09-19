@@ -58,8 +58,8 @@ headlines['Article Content Clean'] = headlines['Article Content Clean'].replace(
 # NNS: noun, common, plural
 
 # tagging parts of speech to pull nouns and adjectives from headlines to get rid of excess words and verbs for better
-# identification of company names
-print("start 1:", datetime.now())
+# identification of company names and efficiency (fewer words to search through)
+
 headlines['nouns'] = ''
 j = 0
 while j < len(headlines):
@@ -74,7 +74,7 @@ while j < len(headlines):
     x = mySeparator.join(nouns)
     headlines['nouns'].values[j] = x
     j = j+1
-print("start 2:", datetime.now())
+
 # do the same for article content
 headlines['Article Content Clean nouns'] = ''
 headlines['Article Content Clean'] = headlines['Article Content Clean'].fillna('')
@@ -92,22 +92,13 @@ while j < len(headlines):
     headlines['Article Content Clean nouns'].values[j] = x
     j = j+1
 
-print("start 3:", datetime.now())
+
 split_nouns = headlines['nouns'].str.split()
 list_nouns = split_nouns.sum()
 df_nouns = pd.DataFrame(list_nouns)
 sum_nouns = df_nouns.value_counts()
 
-# SOLUTION: added list of common companies to list manually to affiliates file
-# added uber, amazon, mcdonald, disney, shell, peloton, coke manually to
-# changed "facebook INC" to META in multinational_affiliates, added META, Instagram, Whatsapp, facebook
-# added most car brands
-# publicly traded company - frontier (parent Indigo Partners) - labeled
-# neuralink (publicly reported and can trade tokenized shares or tokenized stocks) - labeled
-# bitcoin has a bunch of companies that deal with it - just label but don't connect to parent company
-# multiple companies with bt in them - labeled them the biggest: BT GROUP PLC
 
-print("start 4:", datetime.now())
 # add spaces at beginning and end of nouns, so we can search for company names and not get parts of words
 headlines['nouns'] = ' ' + headlines['nouns'] + ' '
 headlines['Title'] = ' ' + headlines['Title'] + ' '
@@ -137,7 +128,6 @@ while k < len(companies):
             i = i+1
     k = k+1
 
-print("start 5:", datetime.now())
 
 # search article nouns for names of individuals
 k = 0
@@ -157,7 +147,6 @@ while k < len(people):
             i = i+1
     k = k+1
 
-print("start 6:", datetime.now())
 
 # search article nouns for brand names
 companies['Strip 13'] = companies['Strip 13'].astype(str)
@@ -181,7 +170,6 @@ while k < len(companies):
             i = i+1
     k = k+1
 
-print("start 7:", datetime.now())
 
 # search article content (Article Content Clean nouns) for company names
 # replace nan with ''
@@ -206,7 +194,6 @@ while k < len(companies):
             i = i+1
     k = k+1
 
-print("start 8:", datetime.now())
 
 # search article content (Article Content Clean nouns) for people names
 k = 0
@@ -228,7 +215,6 @@ while k < len(people):
             i = i+1
     k = k+1
 
-print("start 9:", datetime.now())
 
 # search article content (Article Content Clean nouns) for brand names
 k = 0
@@ -252,10 +238,10 @@ while k < len(companies):
             i = i+1
     k = k+1
 
-print("start 10:", datetime.now())
+
 headlines_simple = headlines[['Date', 'Title', 'URL', 'Image', 'Source', 'Category', 'Article Content Clean',
                               'Company Names (tag)', 'Company ISIN', 'People Names', 'People Individual IDs']].copy()
-print("start 11:", datetime.now())
+
 # save tagged headlines
 headlines_simple.to_csv(('tagged_headlines_' + str(date.today()) + '.csv'), index=False)
 
