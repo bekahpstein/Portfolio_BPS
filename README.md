@@ -55,7 +55,7 @@ while j < len(headlines):
     j = j+1
 ```
     
-The script searches the article names and article content for matches associated with the company name, brands, nicknames, and conglomerate companies. **If "Coke" was used in an article, "The Coca-Cola Company" would be tagged along with the associated ID** 
+**The script searches the article names and article content for matches associated with the company name, brands, nicknames, and conglomerate companies.** If "Coke" was used in an article, "The Coca-Cola Company" would be tagged along with the associated ID.
 
 ```
 k = 0
