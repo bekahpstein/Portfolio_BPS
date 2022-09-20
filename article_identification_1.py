@@ -140,7 +140,6 @@ common_company_names = common_company_names.dropna()
 print("end:", datetime.now())
 
 
-
 # Want to incorporate brands
 # simple version of brands
 brands_sim = brands[['Parent MNE', 'Affiliate Name']]

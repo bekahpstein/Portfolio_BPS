@@ -9,7 +9,7 @@ from nltk import word_tokenize, pos_tag
 
 print("start:", datetime.now())
 
-# fill in file names. There can be as many as you want, but they must be separated by a comma, like so
+# fill in file names. There can be as many as you want, but they must be separated by a comma, like so:
 # headline_file_names = ['Official Headlines.xlsx', 'Official Headlines (1).xlsx', 'Official Headlines (2).xlsx']
 headline_file_names = ['Official Headlines.xlsx']
 
