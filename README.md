@@ -1,5 +1,5 @@
 # Portfolio_BPS
-###### Learning Python through project based learning
+## Learning Python through project based learning
 
 This repository is sample code that I have written while learning Python through completing projects. 
 
