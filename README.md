@@ -55,7 +55,7 @@ while j < len(headlines):
     j = j+1
 ```
     
-The script searches the article names and article content for matches associated with the company name, brands, nicknames, and conglomerate companies.
+The script searches the article names and article content for matches associated with the company name, brands, nicknames, and conglomerate companies. **If "Coke" was used in an article, "The Coca-Cola Company" would be tagged along with the associated ID** 
 
 ```
 k = 0
@@ -77,7 +77,5 @@ while k < len(companies):
             i = i+1
     k = k+1
 ```
-
-**Example - if "Coke" was used in an article, "The Coca-Cola Company" would be tagged** 
 
 If a match is found, a tag is added to a list associated with that article including the full name, what was identified in the article, and the associated ID number. The same process was completed for board member's full names and associated individual ID numbers. The data frame is then exported and saved as a CSV.
