@@ -39,7 +39,7 @@ Brands, nicknames, and conglomerate companies undergo the same cleaning and proc
 ## article_identification_2
 The article_identification_2 imports the CSV output file from article_identification_1 and the aricle information. The script uses Natural Language Processing to simplify the names and content of the articles to only nouns and adjectives, limiting the words to be searched and limiting false tags. 
 
-Using NLP:
+**Using NLP:**
 ```
 while j < len(headlines):
     ex = headlines['Title'][j]
@@ -53,7 +53,7 @@ while j < len(headlines):
     x = mySeparator.join(nouns)
     headlines['nouns'].values[j] = x
     j = j+1
-    ```
+```
     
 The script searches the article names and article content for matches associated with the company name, brands, nicknames, and conglomerate companies.
 
